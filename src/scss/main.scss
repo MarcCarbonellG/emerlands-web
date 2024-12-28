@@ -1,3 +1,13 @@
+// Abstractss
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+
+// Base
+@import 'base/reset';
+
+// Layout
+@import 'layout/header';
+
 // Pages
 @import 'pages/home';
 

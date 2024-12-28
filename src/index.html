@@ -7,9 +7,41 @@
     <title>Emerland</title>
   </head>
   <body>
-    <header></header>
+    <header>
+      <nav class="navbar">
+        <div class="logo">
+          <a href="#" aria-label="Back to top">
+            <picture>
+              <source
+                srcset="./assets/images/emerlands-logo.png?as=webp&width=100px"
+                type="image/webp"
+              />
+              <img
+                src="./assets/images/emerlands-logo.png"
+                alt="Emerlands logo"
+              />
+            </picture>
+          </a>
+        </div>
+        <ul class="menu">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#">About&nbsp;Us</a></li>
+          <li><a href="#">Our&nbsp;Team</a></li>
+        </ul>
+      </nav>
+      <label class="hamburger">
+        <input type="checkbox" />
+      </label>
+      <nav class="dropdown">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About&nbsp;Us</a></li>
+          <li><a href="#">Our&nbsp;Team</a></li>
+        </ul>
+      </nav>
+    </header>
     <main></main>
     <footer></footer>
-    <script src="./js/main.js"></script>
+    <script type="module" src="./js/main.js"></script>
   </body>
 </html>

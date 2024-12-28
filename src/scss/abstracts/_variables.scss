@@ -1,0 +1,22 @@
+@font-face {
+  font-family: 'Geist';
+  src: url('../assets/fonts/Geist-VariableFont_wght.ttf') format('ttf');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+// Colors
+$primary-color: #102031;
+$secondary-color: #295fa6;
+
+$bg-color: linear-gradient(to top right, #ccc, #fff);
+$bg-color-secondary: linear-gradient(to right, $primary-color, #18293b);
+
+// Tipography
+$font-stack: 'Geist', sans-serif;
+
+// Breakpoints
+$breakpoint-xs: 480px;
+$breakpoint-sm: 768px;
+$breakpoint-md: 1024px;
+$breakpoint-lg: 1280px;

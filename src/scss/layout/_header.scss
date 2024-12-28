@@ -1,0 +1,301 @@
+header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 75px;
+  display: flex;
+  justify-content: center;
+  padding-block: 1rem;
+  z-index: 1;
+
+  a {
+    height: 100%;
+    transition: color 0.2s ease-in-out;
+  }
+
+  @media (pointer: fine) {
+    a:hover {
+      cursor: pointer;
+      color: $secondary-color;
+    }
+  }
+
+  @media (pointer: coarse) {
+    a:active {
+      color: $secondary-color;
+    }
+  }
+
+  .navbar {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .logo {
+      flex: 2;
+
+      picture {
+        display: block;
+        height: 100%;
+      }
+    }
+
+    .menu {
+      flex: 1;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      list-style: none;
+      font-weight: 500;
+    }
+
+    @include respond-to(sm) {
+      width: 80%;
+    }
+
+    @include respond-to(xs) {
+      width: 90%;
+
+      .menu {
+        display: none;
+      }
+    }
+  }
+
+  .hamburger {
+    display: none;
+  }
+
+  .hamburger::before,
+  .hamburger::after,
+  .hamburger input {
+    content: '';
+    width: 30px;
+    height: 2px;
+    background-color: $primary-color;
+    border-radius: 9999px;
+    transform-origin: left center;
+    transition:
+      width 0.2s ease-in-out,
+      rotate 0.2s ease-in-out,
+      translate 0.2s ease-in-out,
+      background-color 0.2s ease-in-out;
+  }
+
+  .hamburger.open::before {
+    rotate: 45deg;
+    width: calc(30px * 1.41421356237);
+    translate: 12px;
+    background-color: white;
+  }
+
+  .hamburger.open::after {
+    rotate: -45deg;
+    width: calc(30px * 1.41421356237);
+    translate: 12px;
+    background-color: white;
+  }
+
+  .hamburger input:checked {
+    opacity: 0;
+    width: 0;
+  }
+
+  .hamburger input {
+    appearance: none;
+  }
+
+  .hamburger.open input {
+    background-color: white;
+  }
+
+  .hamburger.closing::before,
+  .hamburger.closing::after {
+    transition:
+      width 0.2s ease-in-out,
+      rotate 0.2s ease-in-out,
+      translate 0.2s ease-in-out,
+      background-color 0.2s ease-in-out 0.5s;
+  }
+
+  .hamburger.closing input {
+    transition: background-color 0.2s ease-in-out 0.5s;
+  }
+
+  @media (pointer: fine) {
+    .hamburger:hover::before,
+    .hamburger:hover::after,
+    .hamburger:hover input {
+      background-color: $secondary-color;
+    }
+
+    .hamburger.open:hover::before,
+    .hamburger.open:hover::after {
+      background-color: $secondary-color;
+    }
+  }
+
+  @media (pointer: coarse) {
+    .hamburger:active::before,
+    .hamburger:active::after,
+    .hamburger:active input {
+      background-color: $secondary-color;
+    }
+
+    .hamburger.open:active::before,
+    .hamburger.open:active::after {
+      background-color: $secondary-color;
+    }
+  }
+
+  .dropdown {
+    display: none;
+  }
+
+  .hamburger.open ~ .dropdown {
+    transform: translateY(0);
+  }
+
+  @include respond-to(xs) {
+    .hamburger {
+      position: absolute;
+      top: 21.5px;
+      right: 5%;
+      height: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      width: max-content;
+      z-index: 1;
+      cursor: pointer;
+    }
+
+    .dropdown {
+      position: fixed;
+      top: 0;
+      width: 100vw;
+      min-height: 100vh;
+      padding-inline: 3rem;
+      font-size: 1.25rem;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      color: white;
+      background: $bg-color-secondary;
+      transform: translateY(-100%);
+      transition: transform 0.5s ease-in-out;
+
+      ul {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-top: 5rem;
+        list-style: none;
+        gap: 1rem;
+
+        a {
+          color: white;
+          font-weight: 600;
+        }
+
+        @media (pointer: fine) {
+          a:hover {
+            cursor: pointer;
+            color: $secondary-color;
+          }
+        }
+
+        @media (pointer: coarse) {
+          a:active {
+            cursor: pointer;
+            color: $secondary-color;
+          }
+        }
+      }
+    }
+
+    .hamburger.open ~ .dropdown li {
+      animation-name: fadeInDown;
+      animation-delay: 0.5s;
+      animation-duration: 1.2s;
+      animation-timing-function: ease-in-out;
+    }
+
+    @for $i from 1 through 4 {
+      .hamburger.open ~ .dropdown li:nth-child(#{$i}) {
+        animation-delay: #{0.1 * $i}s;
+      }
+    }
+
+    @keyframes fadeInDown {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: $bg-color-secondary;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.2s;
+}
+
+header.scrolled::before {
+  opacity: 1;
+}
+
+header.scrolled {
+  a {
+    color: white;
+  }
+
+  @media (pointer: fine) {
+    a:hover {
+      cursor: pointer;
+      color: $secondary-color;
+    }
+  }
+
+  @media (pointer: coarse) {
+    a:active {
+      color: $secondary-color;
+    }
+  }
+
+  .hamburger::before,
+  .hamburger::after,
+  .hamburger input {
+    background-color: white;
+  }
+
+  @media (pointer: fine) {
+    .hamburger:hover::before,
+    .hamburger:hover::after,
+    .hamburger:hover input {
+      background-color: $secondary-color;
+    }
+  }
+
+  @media (pointer: coarse) {
+    .hamburger:active::before,
+    .hamburger:active::after,
+    .hamburger:active input {
+      background-color: $secondary-color;
+    }
+  }
+}
