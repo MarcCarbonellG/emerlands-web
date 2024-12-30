@@ -13,19 +13,6 @@ header {
     transition: color 0.2s ease-in-out;
   }
 
-  @media (pointer: fine) {
-    a:hover {
-      cursor: pointer;
-      color: $secondary-color;
-    }
-  }
-
-  @media (pointer: coarse) {
-    a:active {
-      color: $secondary-color;
-    }
-  }
-
   .navbar {
     width: 70%;
     display: flex;
@@ -34,11 +21,6 @@ header {
 
     .header-logo {
       flex: 2;
-
-      picture {
-        display: block;
-        height: 100%;
-      }
     }
 
     .menu {
@@ -48,7 +30,6 @@ header {
       align-items: center;
       justify-content: space-between;
       gap: 1.5rem;
-      list-style: none;
       font-weight: 500;
     }
 
@@ -194,7 +175,6 @@ header {
         display: flex;
         flex-direction: column;
         margin-top: 5rem;
-        list-style: none;
         gap: 1rem;
 
         a {
@@ -262,19 +242,6 @@ header.scrolled::before {
 header.scrolled {
   a {
     color: white;
-  }
-
-  @media (pointer: fine) {
-    a:hover {
-      cursor: pointer;
-      color: $secondary-color;
-    }
-  }
-
-  @media (pointer: coarse) {
-    a:active {
-      color: $secondary-color;
-    }
   }
 
   .hamburger::before,
