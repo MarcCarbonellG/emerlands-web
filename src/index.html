@@ -11,23 +11,20 @@
     <header>
       <nav class="navbar">
         <div class="header-logo">
-          <a href="#" aria-label="Back to top">
+          <a href="#home" aria-label="Back to top">
             <picture>
               <source
-                srcset="./assets/images/emerlands-logo.png?as=webp&width=100px"
+                srcset="./assets/images/small-logo.png?as=webp&width=100px"
                 type="image/webp"
               />
-              <img
-                src="./assets/images/emerlands-logo.png"
-                alt="Emerlands logo"
-              />
+              <img src="./assets/images/small-logo.png" alt="Emerlands logo" />
             </picture>
           </a>
         </div>
         <ul class="menu">
           <li><a href="#home">Home</a></li>
-          <li><a href="#">About&nbsp;Us</a></li>
-          <li><a href="#">Our&nbsp;Team</a></li>
+          <li><a href="#about-us">About&nbsp;Us</a></li>
+          <li><a href="#our-team">Our&nbsp;Team</a></li>
         </ul>
       </nav>
       <label class="hamburger">
@@ -35,14 +32,68 @@
       </label>
       <nav class="dropdown">
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About&nbsp;Us</a></li>
-          <li><a href="#">Our&nbsp;Team</a></li>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about-us">About&nbsp;Us</a></li>
+          <li><a href="#our-team">Our&nbsp;Team</a></li>
         </ul>
       </nav>
     </header>
     <main></main>
-    <footer></footer>
+    <footer>
+      <div class="footer-container">
+        <div class="footer-logo">
+          <a href="#" aria-label="Back to top">
+            <picture>
+              <source
+                srcset="./assets/images/big-logo-white.png?as=webp&height=120px"
+                type="image/webp"
+              />
+              <img
+                src="./assets/images/big-logo-white.png"
+                alt="Emerlands logo"
+              />
+            </picture>
+          </a>
+        </div>
+        <div class="footer-links">
+          <nav class="footer-link-section">
+            <p class="footer-link-title">Quick&nbsp;links</p>
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about-us">About&nbsp;Us</a></li>
+              <li><a href="#our-team">Our&nbsp;Team</a></li>
+            </ul>
+          </nav>
+          <div class="footer-link-section">
+            <p class="footer-link-title">Stay&nbsp;Connected</p>
+            <ul>
+              <li>
+                <i class="fa-brands fa-linkedin-in"></i
+                ><a href="#home">LinkedIn</a>
+              </li>
+              <li>
+                <i class="fa-brands fa-facebook-f"></i
+                ><a href="#home">Facebook</a>
+              </li>
+              <li>
+                <i class="fa-brands fa-square-instagram"></i
+                ><a href="#home">Instagram</a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer-link-section">
+            <p class="footer-link-title">Contact</p>
+            <ul>
+              <li><i class="fa-solid fa-envelope"></i>info@gmail.com</li>
+              <li><i class="fa-solid fa-envelope"></i>contact@gmail.com</li>
+              <li>
+                <i class="fa-solid fa-phone"></i>+01&nbsp;234&nbsp;567&nbsp;89
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
     <script type="module" src="./js/main.js"></script>
   </body>
 </html>
