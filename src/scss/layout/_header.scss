@@ -191,7 +191,6 @@ header {
 
         @media (pointer: coarse) {
           a:active {
-            cursor: pointer;
             color: $secondary-color;
           }
         }
@@ -248,6 +247,19 @@ header.scrolled {
   .hamburger::after,
   .hamburger input {
     background-color: white;
+  }
+
+  @media (pointer: fine) {
+    a:hover {
+      cursor: pointer;
+      color: $secondary-color;
+    }
+  }
+
+  @media (pointer: coarse) {
+    a:active {
+      color: $secondary-color;
+    }
   }
 
   @media (pointer: fine) {
