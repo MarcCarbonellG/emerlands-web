@@ -22,6 +22,12 @@ body {
   color: $primary-color;
 }
 
+main {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
 a {
   width: min-content;
   display: block;
@@ -49,5 +55,6 @@ ul {
 
 picture {
   display: block;
-  height: 100%;
+  height: min-content;
+  width: min-content;
 }
