@@ -231,7 +231,7 @@ header::before {
   background-image: $bg-color-secondary;
   opacity: 0;
   z-index: -1;
-  transition: opacity 0.2s;
+  transition: opacity 0.4s;
 }
 
 header.scrolled::before {
