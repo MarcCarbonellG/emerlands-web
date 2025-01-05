@@ -74,3 +74,61 @@
     transform: translate(-50%, 66%);
   }
 }
+
+.partners {
+  position: relative;
+  width: 100%;
+  height: 9rem;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding-block: 2rem;
+  overflow: hidden;
+
+  &::before,
+  &::after {
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    content: '';
+    height: 100%;
+    position: absolute;
+    width: 12rem;
+    z-index: 2;
+  }
+
+  &::after {
+    right: 0;
+    top: 0;
+    transform: rotateZ(180deg);
+  }
+
+  &::before {
+    left: 0;
+    top: 0;
+  }
+
+  .partners-carousel {
+    position: absolute;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 5rem;
+    animation: scroll 60s linear infinite;
+
+    img {
+      height: 3rem;
+    }
+  }
+
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
