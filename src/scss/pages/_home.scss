@@ -65,13 +65,56 @@
     }
   }
 
-  .earth-globe {
+  .earth-globe-container {
     height: 120%;
     position: absolute;
     transform-origin: center;
     bottom: 0;
     left: 50%;
     transform: translate(-50%, 66%);
+
+    .airplane-container {
+      position: absolute;
+      top: 62%;
+      left: 41.5%;
+      transform-origin: center center;
+      animation: moveAirplane 10s linear forwards;
+
+      .airplane {
+        width: 10rem;
+        animation: rotateAirplane 10s linear forwards;
+      }
+
+      @keyframes rotateAirplane {
+        0% {
+          transform: rotate(-90deg);
+        }
+
+        50% {
+          transform: rotate(90deg);
+        }
+
+        100% {
+          transform: rotate(-90deg);
+        }
+      }
+
+      @keyframes moveAirplane {
+        // Los 530px que son el radio/diametro de la circunferencia habria que pasarlos a
+        // porcentaje para que se vea bien en todos los tamaños de pantalla
+        0% {
+          transform: rotate(0deg) translate(-530px) rotate(0deg);
+        }
+
+        100% {
+          transform: rotate(360deg) translate(-530px) rotate(-360deg);
+        }
+      }
+
+      @include respond-to(md) {
+        display: none;
+      }
+    }
   }
 }
 
