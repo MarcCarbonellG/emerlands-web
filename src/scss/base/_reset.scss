@@ -14,11 +14,14 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
+  min-height: 100vh;
   display: grid;
   min-height: 100dvh;
   grid-template-rows: auto 1fr auto;
   font-family: $font-stack;
   background: $bg-color;
+  background-size: 100% 100%;
+  background-attachment: fixed;
   color: $primary-color;
 }
 
@@ -34,6 +37,7 @@ a {
   display: block;
   color: $primary-color;
   text-decoration: none;
+  font-weight: 300;
 }
 
 @media (pointer: fine) {
@@ -56,6 +60,4 @@ ul {
 
 picture {
   display: block;
-  height: min-content;
-  width: min-content;
 }

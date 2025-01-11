@@ -139,7 +139,7 @@
     height: 100%;
     position: absolute;
     width: 12rem;
-    z-index: 2;
+    z-index: 1;
   }
 
   &::after {
@@ -172,6 +172,149 @@
     }
     to {
       transform: translateX(-50%);
+    }
+  }
+}
+
+.card-section-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-block: 3rem;
+  text-align: center;
+
+  .card-section {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+
+    @include respond-to(sm) {
+      gap: 1rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    .cards-container {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+
+      .card {
+        width: 30%;
+        height: 365px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.25rem;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 1s ease-out;
+
+        .card-image {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          height: 100%;
+        }
+
+        picture {
+          height: 150px;
+          display: flex;
+          align-items: center;
+        }
+
+        img {
+          max-height: 150px;
+          max-width: 100%;
+        }
+
+        .card-text {
+          height: 150px;
+          max-width: 300px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 0.5rem;
+          font-weight: 300;
+
+          h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+          }
+
+          p {
+            height: 155px;
+          }
+
+          @include respond-to(sm) {
+            h3 {
+              font-size: 1.25rem;
+            }
+          }
+        }
+
+        @include respond-to(sm) {
+          width: 100%;
+
+          .card-text {
+            h3 {
+              font-size: 1.25rem;
+            }
+          }
+        }
+
+        @keyframes fadeInUp {
+          0% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 1;
+          }
+        }
+      }
+
+      .card.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @include respond-to(sm) {
+        flex-direction: column;
+        gap: 0;
+
+        .card {
+          width: 100%;
+        }
+
+        .card-text {
+          h3 {
+            font-size: 1.25rem;
+          }
+        }
+      }
+    }
+
+    @include respond-to(sm) {
+      width: 80%;
+
+      h2 {
+        font-size: 1.75rem;
+      }
+    }
+
+    @include respond-to(xs) {
+      width: 90%;
     }
   }
 }
