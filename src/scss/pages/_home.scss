@@ -354,3 +354,48 @@
     }
   }
 }
+
+.divider-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .divider {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+
+    .lines {
+      width: 100%;
+      hr {
+        border: none;
+        border-block-start: 2px solid $primary-color;
+        width: 100%;
+      }
+
+      hr:last-of-type {
+        border-color: $secondary-color;
+        margin-block-start: 1px;
+      }
+    }
+
+    .bird {
+      width: 2rem;
+    }
+
+    .bird.flipped {
+      transform: scaleX(-1);
+    }
+
+    @include respond-to(sm) {
+      width: 80%;
+    }
+
+    @include respond-to(xs) {
+      width: 90%;
+    }
+  }
+}
