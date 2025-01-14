@@ -21,6 +21,14 @@
       align-self: flex-end;
       .bird {
         width: 3.75rem;
+
+        @include respond-to(sm) {
+          width: 3.4rem;
+        }
+
+        @include respond-to(xs) {
+          width: 3.15rem;
+        }
       }
     }
 
@@ -31,6 +39,14 @@
       .lands {
         color: $secondary-color;
       }
+
+      @include respond-to(sm) {
+        font-size: 3.4rem;
+      }
+
+      @include respond-to(xs) {
+        font-size: 3.15rem;
+      }
     }
 
     p {
@@ -38,83 +54,76 @@
       font-weight: 700;
       width: 31.25rem;
       max-width: 90%;
-    }
 
-    @include respond-to(sm) {
-      .bird {
-        width: 3.4rem;
-      }
-
-      h1 {
-        font-size: 3.4rem;
-      }
-    }
-
-    @include respond-to(xs) {
-      .bird {
-        width: 3.15rem;
-      }
-
-      h1 {
-        font-size: 3.15rem;
-      }
-
-      p {
+      @include respond-to(xs) {
         font-size: 1.15rem;
       }
     }
   }
 
   .earth-globe-container {
-    height: 120%;
     position: absolute;
-    transform-origin: center;
-    bottom: 0;
+    width: 100%;
+    top: 60%;
     left: 50%;
-    transform: translate(-50%, 66%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(-50%);
 
-    // .airplane-container {
-    //   position: absolute;
-    //   top: 62%;
-    //   left: 41.5%;
-    //   transform-origin: center center;
-    //   animation: moveAirplane 10s linear forwards;
+    .earth-globe-airplane {
+      position: relative;
+      width: 1000px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-    //   .airplane {
-    //     width: 10rem;
-    //     animation: rotateAirplane 10s linear forwards;
-    //   }
+      .airplane-container {
+        position: absolute;
+        top: 49%;
+        left: 43.5%;
+        transform-origin: center center;
+        transform: translate(-50%, -50%);
+        animation: moveAirplane 10s linear infinite;
 
-    //   @keyframes rotateAirplane {
-    //     0% {
-    //       transform: rotate(-90deg);
-    //     }
+        .airplane {
+          width: 8rem;
+          animation: rotateAirplane 10s linear infinite;
+        }
 
-    //     50% {
-    //       transform: rotate(90deg);
-    //     }
+        @keyframes rotateAirplane {
+          0% {
+            transform: rotate(-90deg);
+          }
 
-    //     100% {
-    //       transform: rotate(-90deg);
-    //     }
-    //   }
+          25% {
+            transform: rotate(0deg);
+          }
 
-    //   @keyframes moveAirplane {
-    //     // Los 530px que son el radio/diametro de la circunferencia habria que pasarlos a
-    //     // porcentaje para que se vea bien en todos los tamaños de pantalla
-    //     0% {
-    //       transform: rotate(0deg) translate(-530px) rotate(0deg);
-    //     }
+          50% {
+            transform: rotate(90deg);
+          }
 
-    //     100% {
-    //       transform: rotate(360deg) translate(-530px) rotate(-360deg);
-    //     }
-    //   }
+          75% {
+            transform: rotate(180deg);
+          }
 
-    //   @include respond-to(md) {
-    //     display: none;
-    //   }
-    // }
+          100% {
+            transform: rotate(270deg);
+          }
+        }
+
+        @keyframes moveAirplane {
+          0% {
+            transform: rotate(0deg) translate(-540px) rotate(0deg);
+          }
+
+          100% {
+            transform: rotate(360deg) translate(-540px) rotate(-360deg);
+          }
+        }
+      }
+    }
   }
 }
 
@@ -181,8 +190,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-block: 3rem;
+  margin-block: 2.5rem;
   text-align: center;
+  scroll-margin-top: 115px;
 
   .card-section {
     width: 70%;
@@ -273,10 +283,8 @@
           h3 {
             font-size: 1.5rem;
             font-weight: 600;
-          }
 
-          @include respond-to(sm) {
-            h3 {
+            @include respond-to(sm) {
               font-size: 1.25rem;
             }
           }
@@ -292,12 +300,6 @@
 
         @include respond-to(sm) {
           width: 100%;
-
-          .card-text {
-            h3 {
-              font-size: 1.25rem;
-            }
-          }
         }
       }
 
@@ -317,16 +319,6 @@
       @include respond-to(sm) {
         flex-direction: column;
         gap: 2rem;
-
-        .card {
-          width: 100%;
-        }
-
-        .card-text {
-          h3 {
-            font-size: 1.25rem;
-          }
-        }
       }
     }
 
@@ -360,9 +352,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-block: 1rem;
 
   .divider {
-    width: 70%;
+    width: 90%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -389,13 +382,198 @@
     .bird.flipped {
       transform: scaleX(-1);
     }
+  }
+}
 
-    @include respond-to(sm) {
-      width: 80%;
+.stats-section {
+  width: 100%;
+
+  .firearms,
+  .ammunition {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 20rem;
+
+      @include respond-to(md) {
+        width: 15rem;
+      }
+
+      @include respond-to(sm) {
+        width: 9.75rem;
+      }
+
+      @include respond-to(xs) {
+        width: 15rem;
+      }
     }
 
-    @include respond-to(xs) {
-      width: 90%;
+    .word {
+      position: absolute;
+      width: 0;
+      display: flex;
+      align-items: center;
+      z-index: -1;
+      opacity: 0;
+      transition: all 1s ease-out;
+
+      .rectangle {
+        height: 3.56rem;
+        width: 100%;
+
+        @include respond-to(md) {
+          height: 2.85rem;
+        }
+
+        @include respond-to(sm) {
+          height: 1.95rem;
+        }
+      }
+
+      p {
+        font-size: 5rem;
+        font-weight: 900;
+
+        @include respond-to(md) {
+          font-size: 4rem;
+        }
+
+        @include respond-to(sm) {
+          font-size: 2.75rem;
+        }
+      }
+
+      @include respond-to(xs) {
+        display: none;
+      }
+    }
+
+    .word.show {
+      width: 85%;
+      opacity: 1;
+
+      @include respond-to(md) {
+        width: 95%;
+      }
+    }
+  }
+
+  .firearms {
+    justify-content: flex-start;
+
+    img {
+      transform: translateY(5px);
+    }
+
+    .word {
+      .rectangle {
+        background: linear-gradient(to right, $secondary-color, $primary-color);
+      }
+
+      p {
+        left: calc(50% - 5px);
+        transform: translateX(-6px);
+      }
+    }
+  }
+
+  .ammunition {
+    justify-content: flex-end;
+
+    .word {
+      .rectangle {
+        background: linear-gradient(to left, $secondary-color, $primary-color);
+      }
+
+      p {
+        right: calc(50% - 5px);
+        transform: translateX(6px);
+      }
+    }
+
+    img {
+      transform: scaleX(-1);
+    }
+  }
+
+  .stats-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    padding-block: 2rem;
+
+    .stats {
+      width: 70%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+
+      .stat {
+        width: 25%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        opacity: 0;
+        transform: translateY(3rem);
+        transition: all 1s ease-out;
+
+        h3 {
+          font-size: 1.2rem;
+          font-weight: 400;
+
+          @include respond-to(sm) {
+            font-size: 1rem;
+          }
+        }
+
+        p {
+          font-size: 1.4rem;
+          font-weight: 600;
+
+          @include respond-to(sm) {
+            font-size: 1.2rem;
+          }
+        }
+      }
+
+      .stat.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .stat-divider {
+        width: 1.5px;
+        height: 6.25rem;
+        background-color: $primary-color;
+        margin: 0;
+
+        @media screen and (max-width: 624px) {
+          width: 9.4rem;
+          height: 1.5px;
+        }
+
+        @include respond-to(xs) {
+          width: 9.4rem;
+          height: 1.5px;
+        }
+      }
+
+      @include respond-to(md) {
+        width: 80%;
+      }
+
+      @media screen and (max-width: 624px) {
+        width: 90%;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
     }
   }
 }

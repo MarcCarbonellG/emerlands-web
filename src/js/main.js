@@ -1,8 +1,10 @@
-import { setUpToggleCardsOnScroll } from './card.js';
 import { setupDropdownToggle, setupHeaderScroll } from './header.js';
+import { setUpToggleOnScroll } from './scroll.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   setupDropdownToggle();
   setupHeaderScroll();
-  setUpToggleCardsOnScroll();
+  setUpToggleOnScroll('.card');
+  setUpToggleOnScroll('.stat');
+  setUpToggleOnScroll('.word');
 });
