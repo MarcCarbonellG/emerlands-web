@@ -1,6 +1,6 @@
 // Handles elements fade in animation
-export function setUpToggleOnScroll(className) {
-  const elements = document.querySelectorAll(className);
+export function setUpToggleOnScroll() {
+  const elements = document.querySelectorAll('.fadeIn');
   const toggleOnScroll = () => {
     elements.forEach((element) => {
       const elementTop = element.getBoundingClientRect().top;

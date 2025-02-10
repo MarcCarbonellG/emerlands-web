@@ -20,7 +20,7 @@ header {
     justify-content: center;
 
     .header-logo {
-      flex: 2;
+      flex: 1;
 
       .white-logo {
         display: none;
@@ -45,12 +45,14 @@ header {
       width: 80%;
     }
 
-    @include respond-to(xs) {
-      width: 90%;
-
+    @media (max-width: 624px) {
       .menu {
         display: none;
       }
+    }
+
+    @include respond-to(xs) {
+      width: 90%;
     }
   }
 
@@ -148,7 +150,7 @@ header {
     transform: translateY(0);
   }
 
-  @include respond-to(xs) {
+  @media (max-width: 624px) {
     .hamburger {
       position: absolute;
       top: 21.5px;
@@ -188,28 +190,26 @@ header {
         a {
           color: white;
           font-weight: 600;
-        }
 
-        @media (pointer: fine) {
-          a:hover {
-            cursor: pointer;
-            color: $secondary-color;
+          @media (pointer: fine) {
+            &:hover {
+              cursor: pointer;
+              color: $secondary-color;
+            }
           }
-        }
 
-        @media (pointer: coarse) {
-          a:active {
-            color: $secondary-color;
+          @media (pointer: coarse) {
+            &:active {
+              color: $secondary-color;
+            }
           }
         }
       }
     }
 
     .hamburger.open ~ .dropdown li {
-      animation-name: fadeInDown;
-      animation-delay: 0.5s;
-      animation-duration: 1.2s;
-      animation-timing-function: ease-in-out;
+      opacity: 0;
+      animation: fadeInDown 1s 1.2s ease-in-out forwards;
     }
 
     @for $i from 1 through 4 {
@@ -227,72 +227,72 @@ header {
       }
     }
   }
-}
 
-header::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: $bg-color-secondary;
-  opacity: 0;
-  z-index: -1;
-  transition: opacity 0.4s;
-}
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: $bg-color-secondary;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.4s;
+  }
 
-header.scrolled::before {
-  opacity: 1;
-}
+  &.scrolled::before {
+    opacity: 1;
+  }
 
-header.scrolled {
-  .header-logo {
-    .logo {
-      display: none;
+  &.scrolled {
+    .header-logo {
+      .logo {
+        display: none;
+      }
+
+      .white-logo {
+        display: block;
+      }
     }
 
-    .white-logo {
-      display: block;
+    a {
+      color: white;
+
+      @media (pointer: fine) {
+        &:hover {
+          cursor: pointer;
+          color: $secondary-color;
+        }
+      }
+
+      @media (pointer: coarse) {
+        &:active {
+          color: $secondary-color;
+        }
+      }
     }
-  }
 
-  a {
-    color: white;
-  }
-
-  .hamburger::before,
-  .hamburger::after,
-  .hamburger input {
-    background-color: white;
-  }
-
-  @media (pointer: fine) {
-    a:hover {
-      cursor: pointer;
-      color: $secondary-color;
+    .hamburger::before,
+    .hamburger::after,
+    .hamburger input {
+      background-color: white;
     }
-  }
 
-  @media (pointer: coarse) {
-    a:active {
-      color: $secondary-color;
+    @media (pointer: fine) {
+      .hamburger:hover::before,
+      .hamburger:hover::after,
+      .hamburger:hover input {
+        background-color: $secondary-color;
+      }
     }
-  }
 
-  @media (pointer: fine) {
-    .hamburger:hover::before,
-    .hamburger:hover::after,
-    .hamburger:hover input {
-      background-color: $secondary-color;
-    }
-  }
-
-  @media (pointer: coarse) {
-    .hamburger:active::before,
-    .hamburger:active::after,
-    .hamburger:active input {
-      background-color: $secondary-color;
+    @media (pointer: coarse) {
+      .hamburger:active::before,
+      .hamburger:active::after,
+      .hamburger:active input {
+        background-color: $secondary-color;
+      }
     }
   }
 }
