@@ -190,10 +190,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-block-start: 2.5rem;
-  margin-block-end: 1.25rem;
+  margin-block: 5rem 2.5rem;
   text-align: center;
-  scroll-margin-block-start: 115px;
+  scroll-margin-block-start: 155px;
 
   .card-section {
     width: 70%;
@@ -201,7 +200,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
+    gap: 2.5rem;
 
     h2 {
       font-size: 2rem;
@@ -229,8 +228,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-between;
-        gap: 0;
+        gap: 1.5rem;
         opacity: 0;
         transform: translateY(3rem);
         transition: all 1s ease-out;
@@ -249,7 +247,7 @@
           align-items: center;
           justify-content: center;
           width: 100%;
-          height: 100%;
+          min-height: 9.4rem;
 
           .circle {
             position: relative;
@@ -282,7 +280,6 @@
         }
 
         .card-text {
-          height: 9.4rem;
           max-width: 18.75rem;
           display: flex;
           flex-direction: column;
@@ -302,7 +299,6 @@
           }
 
           p {
-            height: 9.7rem;
             letter-spacing: 0.02rem;
             line-height: 1.5rem;
           }
@@ -318,6 +314,8 @@
 
         @include respond-to(sm) {
           width: 100%;
+          height: auto;
+          gap: 1rem;
         }
       }
 
@@ -327,21 +325,17 @@
 
       @include respond-to(sm) {
         flex-direction: column;
-        gap: 0;
+        gap: 3rem;
       }
     }
 
-    @include respond-to(md) {
-      gap: 0.75rem;
-    }
-
-    @media (max-width: 896px) {
-      gap: 0rem;
+    @include respond-to(lg) {
+      gap: 2rem;
     }
 
     @include respond-to(sm) {
       width: 80%;
-      gap: 0.5rem;
+      gap: 1.5rem;
     }
 
     @include respond-to(xs) {
@@ -350,7 +344,7 @@
   }
 
   @include respond-to(md) {
-    margin-block-end: 2.5rem;
+    margin-block-end: 5rem;
   }
 }
 
@@ -598,7 +592,11 @@
   justify-content: center;
   margin-block-start: 5rem;
   margin-block-end: 3rem;
-  scroll-margin-block-start: 120px;
+  scroll-margin-block-start: 154px;
+
+  &.contact-form {
+    scroll-margin-block-start: 154px;
+  }
 
   .two-column-container {
     width: 70%;
