@@ -192,7 +192,11 @@
   justify-content: center;
   margin-block: 5rem 2.5rem;
   text-align: center;
-  scroll-margin-block-start: 155px;
+  scroll-margin-block-start: 9rem;
+
+  @include respond-to(md) {
+    scroll-margin-block-start: 7rem;
+  }
 
   .card-section {
     width: 70%;
@@ -592,10 +596,10 @@
   justify-content: center;
   margin-block-start: 5rem;
   margin-block-end: 3rem;
-  scroll-margin-block-start: 154px;
+  scroll-margin-block-start: 9rem;
 
-  &.contact-form {
-    scroll-margin-block-start: 154px;
+  @include respond-to(md) {
+    scroll-margin-block-start: 7rem;
   }
 
   .two-column-container {
