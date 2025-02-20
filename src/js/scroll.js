@@ -9,7 +9,7 @@ export function setUpToggleOnScroll() {
 
       if (elementTop < windowHeight - 100 && elementBottom > 100) {
         element.classList.add('show');
-      } else {
+      } else if (elementTop > windowHeight) {
         element.classList.remove('show');
       }
     });

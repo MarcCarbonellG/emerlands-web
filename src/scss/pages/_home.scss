@@ -594,9 +594,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-block-start: 5rem;
-  margin-block-end: 3rem;
-  scroll-margin-block-start: 9rem;
+  margin-block: 5rem;
+  scroll-margin-block-start: 7.5rem;
 
   @include respond-to(md) {
     scroll-margin-block-start: 7rem;
@@ -819,6 +818,64 @@
 
     button {
       width: 50%;
+    }
+  }
+}
+
+.download-section {
+  width: 100%;
+  min-height: 7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  padding-block: 1.5rem;
+
+  .download-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    opacity: 0;
+    transform: translateY(1.5rem);
+    transition: all 1s ease-out;
+
+    &.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @include respond-to(xs) {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    p {
+      font-weight: 700;
+      font-size: 1.6rem;
+
+      @include respond-to(xs) {
+        font-size: 1.5rem;
+      }
+
+      i {
+        font-size: 1.5rem;
+      }
+    }
+
+    a {
+      width: auto;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1rem;
+
+      &:hover {
+        color: white;
+        opacity: 0.9;
+      }
     }
   }
 }
